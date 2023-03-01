@@ -1,0 +1,14 @@
+{
+  "Environment": "Test",
+  "Environments": {
+    "Test": {
+      "Url": "https://reqres.in/"
+    },
+    "SIT": {
+      "Url": "https://reqres.in/"
+    },
+    "UAT": {
+      "Url": "https://reqres.in/"
+    }
+  }
+}
