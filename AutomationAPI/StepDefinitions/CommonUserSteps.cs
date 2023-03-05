@@ -29,7 +29,7 @@ namespace AutomationAPI.StepDefinitions
         [When(@"User Execute the request")]
         public void WhenUserExecuteTheRequest()
         {
-            _restResponse = ExecuteGetRequest();
+            _restResponse = ExecuteRequest();
         }
 
 

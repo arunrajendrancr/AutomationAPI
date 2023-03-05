@@ -22,16 +22,6 @@ namespace AutomationAPI.Utility
         public static RestRequest? _restRequest;
         public static RestResponse? _restResponse;
         public static string? baseUrl = IntializeHooks.baseUrl;
-  
-        public static RestResponse GetRequest(string resource)
-        {     
-            _restclient = new RestClient(baseUrl);
-            _restRequest = new RestRequest(resource, Method.Get);
-            _restResponse = _restclient.Execute(_restRequest);
-
-            return _restResponse;
-        }
-
 
        public static void SetRequest(string resource,string requestType, object? payload =null) 
         {
@@ -57,7 +47,7 @@ namespace AutomationAPI.Utility
         }
 
             
-        public static RestResponse ExecuteGetRequest()
+        public static RestResponse ExecuteRequest()
         {
             if (_restclient != null)
                 _restResponse = _restclient.Execute(_restRequest);
@@ -90,35 +80,7 @@ namespace AutomationAPI.Utility
             return result;
         }
 
-        public static RestResponse CreatePostRequest(string resource, User payload)
-        {
-           
-            _restclient = new RestClient(baseUrl);
-            _restRequest = new RestRequest(resource, Method.Post);
-            var request= _restRequest.AddJsonBody<User>(payload);
-            var result=_restclient.Execute(request);
-            return result;
-        }
-
-        public static RestResponse PutRequest(string resource, User payload)
-        {
-
-            _restclient = new RestClient(baseUrl);
-            _restRequest = new RestRequest(resource, Method.Put);
-            var request = _restRequest.AddJsonBody<User>(payload);
-            var result = _restclient.Execute(request);
-            return result;
-        }
-
-        public static RestResponse PatchRequest(string resource, User payload)
-        {
-
-            _restclient = new RestClient(baseUrl);
-            _restRequest = new RestRequest(resource, Method.Patch);
-            var request = _restRequest.AddJsonBody<User>(payload);
-            var result = _restclient.Execute(request);
-            return result;
-        }
+       
 
         public static Dictionary<string, string> ToDictionary(Table table)
         {
@@ -192,6 +154,7 @@ namespace AutomationAPI.Utility
                     }
                  default: throw new Exception("Invalid RequestType");
         }
+
           
         }
     }
