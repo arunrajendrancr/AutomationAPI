@@ -13,11 +13,12 @@ Project structure
 project related part with models and utility
 --models/: classes that represent data models of the application under the test (POJO classes)
 --utility/: helpers class with methods that performs REST operations GET,POST,PUT,PATCH
+--data/:contains AppContants like sub urls.
 
 Specflow implementation of the tests
 --features/: Gherkin feature files with test scenarios
 --hooks/: Specflow hooks
---stepdefinitions/: step definition classes
+--stepdefinitions/: contains common and test related step definition classes  
 --report/: extent reports are generated here after each execution
 
 config.json: contains env and url details
