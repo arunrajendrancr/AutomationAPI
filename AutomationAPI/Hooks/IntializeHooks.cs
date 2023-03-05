@@ -18,9 +18,9 @@ namespace AutomationAPI.Hooks
     [Binding]
     public class IntializeHooks 
     {
-        private static ExtentTest featureName;
-        private static ExtentTest scenario;
-        private static ExtentReports extent;
+        private static ExtentTest featureName= null!;
+        private static ExtentTest scenario= null!;
+        private static ExtentReports extent = null!;
         public static string? userName { get; set; }
         public static string? password { get; set; }
         public static string? baseUrl { get; set; }
@@ -43,12 +43,14 @@ namespace AutomationAPI.Hooks
         }
 
         [BeforeFeature]
+        [Obsolete]
         public static void BeforeFeature()
         {         
             featureName = extent.CreateTest<Feature>(FeatureContext.Current.FeatureInfo.Title);
         }
 
         [AfterStep]
+        [Obsolete]
         public void InsertReportingSteps()
         {
             var stepType = ScenarioStepContext.Current.StepInfo.StepDefinitionType.ToString();
@@ -77,11 +79,10 @@ namespace AutomationAPI.Hooks
 
 
         [BeforeScenario]
+        [Obsolete]
         public void Initialize()
         {
-            var secretValues = new ConfigurationBuilder()
-                .AddUserSecrets<IntializeHooks>()
-                .Build();
+            var secretValues = new ConfigurationBuilder().AddUserSecrets<IntializeHooks>().Build();
              userName = secretValues["SecretData:userName"];
             password = secretValues["SecretData:password"];
             var config = new ConfigurationBuilder().AddJsonFile("config.json").Build();

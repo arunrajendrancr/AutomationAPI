@@ -1,9 +1,15 @@
 ﻿Feature: Create User
 
-Scenario: Post operation for CreateUser 
-	Given User send Post request with "<Resource>" with "<Name>" And "<Job>"
-	Then Verify whether the status code is "<StatusCode>"
-	Then Verify Whether the "<Name>" And "<Job>" Is Same
-	Examples:
-	| Resource   | StatusCode | Name | Job     |
-	| /api/users | 201        | Githin  | Engineer |
+@Regression
+Scenario: Post operation for CreateUser1
+	Given User Create "POST" request with payload
+		| Key  | Value  |
+		| Name | Jacob  |
+		| Job  | Driver |
+	When User Execute the request
+	And Verify Whether the "<Name>" And "<Job>" Is Same
+	Then Verify whether the status code "<StatusCode>"
+
+Examples:
+	| Name  | Job    | StatusCode |
+	| Jacob | Driver | 201        |

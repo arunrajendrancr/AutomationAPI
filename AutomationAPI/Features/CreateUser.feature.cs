@@ -74,18 +74,24 @@ namespace AutomationAPI.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Post operation for CreateUser")]
-        [NUnit.Framework.TestCaseAttribute("/api/users", "201", "Githin", "Engineer", null)]
-        public virtual void PostOperationForCreateUser(string resource, string statusCode, string name, string job, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("Post operation for CreateUser1")]
+        [NUnit.Framework.CategoryAttribute("Regression")]
+        [NUnit.Framework.TestCaseAttribute("Jacob", "Driver", "201", null)]
+        public virtual void PostOperationForCreateUser1(string name, string job, string statusCode, string[] exampleTags)
         {
-            string[] tagsOfScenario = exampleTags;
+            string[] @__tags = new string[] {
+                    "Regression"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("Resource", resource);
-            argumentsOfScenario.Add("StatusCode", statusCode);
             argumentsOfScenario.Add("Name", name);
             argumentsOfScenario.Add("Job", job);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Post operation for CreateUser", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 3
+            argumentsOfScenario.Add("StatusCode", statusCode);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Post operation for CreateUser1", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 4
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -105,14 +111,26 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 4
- testRunner.Given(string.Format("User send Post request with \"{0}\" with \"{1}\" And \"{2}\"", resource, name, job), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
+                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Key",
+                            "Value"});
+                table1.AddRow(new string[] {
+                            "Name",
+                            "Jacob"});
+                table1.AddRow(new string[] {
+                            "Job",
+                            "Driver"});
 #line 5
- testRunner.Then(string.Format("Verify whether the status code is \"{0}\"", statusCode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Given("User Create \"POST\" request with payload", ((string)(null)), table1, "Given ");
 #line hidden
-#line 6
- testRunner.Then(string.Format("Verify Whether the \"{0}\" And \"{1}\" Is Same", name, job), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 9
+ testRunner.When("User Execute the request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 10
+ testRunner.And(string.Format("Verify Whether the \"{0}\" And \"{1}\" Is Same", name, job), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 11
+ testRunner.Then(string.Format("Verify whether the status code \"{0}\"", statusCode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

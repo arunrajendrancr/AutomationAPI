@@ -75,13 +75,22 @@ namespace AutomationAPI.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Get operation for ListUser")]
-        [NUnit.Framework.TestCaseAttribute("api/users?page=2", "200", null)]
-        public virtual void GetOperationForListUser(string resource, string statusCode, string[] exampleTags)
+        [NUnit.Framework.CategoryAttribute("Regression")]
+        [NUnit.Framework.TestCaseAttribute("All", "200", "PageNumber", "2", null)]
+        public virtual void GetOperationForListUser(string user, string statusCode, string parameter, string value, string[] exampleTags)
         {
-            string[] tagsOfScenario = exampleTags;
+            string[] @__tags = new string[] {
+                    "Regression"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("Resource", resource);
+            argumentsOfScenario.Add("User", user);
             argumentsOfScenario.Add("StatusCode", statusCode);
+            argumentsOfScenario.Add("Parameter", parameter);
+            argumentsOfScenario.Add("Value", value);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get operation for ListUser", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 3
 this.ScenarioInitialize(scenarioInfo);
@@ -104,9 +113,12 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 4
- testRunner.Given(string.Format("User send GET request with \"{0}\"", resource), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given(string.Format("User Create \"GET\" request for \"{0}\" with \"{1}\"  and its \"{2}\"", user, parameter, value), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 5
+ testRunner.When("User Execute the request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 6
  testRunner.Then(string.Format("Verify whether the status code \"{0}\"", statusCode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -114,16 +126,26 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Get operation for ListUser - Negative Case")]
-        [NUnit.Framework.TestCaseAttribute("ap", "404", null)]
-        public virtual void GetOperationForListUser_NegativeCase(string resource, string statusCode, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("Verify whether a perticular user exist in User\'s list")]
+        [NUnit.Framework.CategoryAttribute("Test")]
+        [NUnit.Framework.TestCaseAttribute("All", "200", "PageNumber", "2", "Lindsay Ferguson", null)]
+        public virtual void VerifyWhetherAPerticularUserExistInUsersList(string user, string statusCode, string parameter, string value, string userName, string[] exampleTags)
         {
-            string[] tagsOfScenario = exampleTags;
+            string[] @__tags = new string[] {
+                    "Test"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("Resource", resource);
+            argumentsOfScenario.Add("User", user);
             argumentsOfScenario.Add("StatusCode", statusCode);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get operation for ListUser - Negative Case", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 11
+            argumentsOfScenario.Add("Parameter", parameter);
+            argumentsOfScenario.Add("Value", value);
+            argumentsOfScenario.Add("UserName", userName);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify whether a perticular user exist in User\'s list", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 13
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -143,55 +165,17 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 12
- testRunner.Given(string.Format("User send GET request with \"{0}\"", resource), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 14
+ testRunner.Given(string.Format("User Create \"GET\" request for \"{0}\" with \"{1}\"  and its \"{2}\"", user, parameter, value), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 13
+#line 15
+ testRunner.When("User Execute the request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 16
+ testRunner.Then(string.Format("Verify whether the \"{0}\" exist in User\'s list", userName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 17
  testRunner.Then(string.Format("Verify whether the status code \"{0}\"", statusCode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Verify whether a perticular user exist in User\'s list")]
-        [NUnit.Framework.TestCaseAttribute("api/users?page=2", "200", "Lindsay Ferguson", null)]
-        public virtual void VerifyWhetherAPerticularUserExistInUsersList(string resource, string statusCode, string user, string[] exampleTags)
-        {
-            string[] tagsOfScenario = exampleTags;
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("Resource", resource);
-            argumentsOfScenario.Add("StatusCode", statusCode);
-            argumentsOfScenario.Add("User", user);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify whether a perticular user exist in User\'s list", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 19
- this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 20
- testRunner.Given(string.Format("User send GET request with \"{0}\"", resource), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 21
- testRunner.Then(string.Format("Verify whether the status code \"{0}\"", statusCode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 22
- testRunner.Then(string.Format("Verify whether the \"{0}\" exist in User\'s list", user), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

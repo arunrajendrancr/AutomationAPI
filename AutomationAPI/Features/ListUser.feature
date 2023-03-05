@@ -1,29 +1,24 @@
 ﻿Feature: ListUser
-
-Scenario: Get operation for ListUser 
-	Given User send GET request with "<Resource>"
+@Regression
+Scenario: Get operation for ListUser
+	Given User Create "GET" request for "<User>" with "<Parameter>"  and its "<Value>"
+	When User Execute the request
 	Then Verify whether the status code "<StatusCode>"
 
-	Examples:
-	| Resource         | StatusCode |
-	| api/users?page=2 | 200        |
+Examples:
+	| User | StatusCode | Parameter  | Value |
+	| All  | 200        | PageNumber | 2     |
 
-Scenario: Get operation for ListUser - Negative Case
-	Given User send GET request with "<Resource>"
+@Test
+Scenario: Verify whether a perticular user exist in User's list
+	Given User Create "GET" request for "<User>" with "<Parameter>"  and its "<Value>"
+	When User Execute the request
+	Then Verify whether the "<UserName>" exist in User's list
 	Then Verify whether the status code "<StatusCode>"
 
-	Examples:
-	| Resource | StatusCode |
-	| ap       | 404        |
+Examples:
+	| User | StatusCode | Parameter  | Value | UserName         |
+	| All  | 200        | PageNumber | 2     | Lindsay Ferguson |
 
-	Scenario: Verify whether a perticular user exist in User's list
-	Given User send GET request with "<Resource>"
-	Then Verify whether the status code "<StatusCode>"
-	Then Verify whether the "<User>" exist in User's list
-
-	Examples:
-	| Resource         | StatusCode | User             |
-	| api/users?page=2 | 200        | Lindsay Ferguson |
-
-
+	
 

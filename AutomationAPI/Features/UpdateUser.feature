@@ -1,20 +1,29 @@
 ﻿Feature: Update User
+@Test
+Scenario: Put operation for UpdateUser
+	Given User Create "PUT" request with payload
+		| Key  | Value  |
+		| Name | San    |
+		| Job  | Doctor |
+		| Id   | 123    |
+	When User Execute the request
+	And Verify Whether the "<Name>" And "<Job>" Is Updated
+	Then Verify whether the status code "<StatusCode>"
+	
+Examples:
+	| StatusCode | Name | Job    |
+	| 200        | San  | Doctor |
 
-Scenario: Put operation for UpdateUser 
-	Given User send Put request with "<Resource>" with "<Name>" And "<Job>" to update
-	Then Verify whether the status code is "<StatusCode>"
-	Then Verify Whether the "<Name>" And "<Job>" Is Updated
-	Examples:
-	| Resource       | StatusCode | Name | Job    |
-	| /api/users/123 | 200        | San  | Doctor |
-
-
-Scenario: Patch operation for UpdateUser 
-	Given User send Patch request with "<Resource>" and payload
-	| Key  | Value |
-	| Name | Don   |
-	| Job  | nurse |
-	Then Verify whether the status code is "<StatusCode>"
-	Examples:
-	| Resource       | StatusCode |
-	| /api/users/711 | 200        |
+@Test
+Scenario: Patch operation for UpdateUser
+	Given User Create "PATCH" request with payload
+		| Key  | Value   |
+		| Name | Joly    |
+		| Job  | Teacher |
+		| Id   | 123     |
+	When User Execute the request
+	And Verify Whether the "<Name>" And "<Job>" Is Updated
+	Then Verify whether the status code "<StatusCode>"
+Examples:
+	| StatusCode | Name | Job     |
+	| 200        | Joly | Teacher |

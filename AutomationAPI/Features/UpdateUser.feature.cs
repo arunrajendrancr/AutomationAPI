@@ -75,12 +75,18 @@ namespace AutomationAPI.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Put operation for UpdateUser")]
-        [NUnit.Framework.TestCaseAttribute("/api/users/123", "200", "San", "Doctor", null)]
-        public virtual void PutOperationForUpdateUser(string resource, string statusCode, string name, string job, string[] exampleTags)
+        [NUnit.Framework.CategoryAttribute("Test")]
+        [NUnit.Framework.TestCaseAttribute("200", "San", "Doctor", null)]
+        public virtual void PutOperationForUpdateUser(string statusCode, string name, string job, string[] exampleTags)
         {
-            string[] tagsOfScenario = exampleTags;
+            string[] @__tags = new string[] {
+                    "Test"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("Resource", resource);
             argumentsOfScenario.Add("StatusCode", statusCode);
             argumentsOfScenario.Add("Name", name);
             argumentsOfScenario.Add("Job", job);
@@ -105,14 +111,29 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
+                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Key",
+                            "Value"});
+                table2.AddRow(new string[] {
+                            "Name",
+                            "San"});
+                table2.AddRow(new string[] {
+                            "Job",
+                            "Doctor"});
+                table2.AddRow(new string[] {
+                            "Id",
+                            "123"});
 #line 4
- testRunner.Given(string.Format("User send Put request with \"{0}\" with \"{1}\" And \"{2}\" to update", resource, name, job), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("User Create \"PUT\" request with payload", ((string)(null)), table2, "Given ");
 #line hidden
-#line 5
- testRunner.Then(string.Format("Verify whether the status code is \"{0}\"", statusCode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 9
+ testRunner.When("User Execute the request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 6
- testRunner.Then(string.Format("Verify Whether the \"{0}\" And \"{1}\" Is Updated", name, job), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 10
+ testRunner.And(string.Format("Verify Whether the \"{0}\" And \"{1}\" Is Updated", name, job), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 11
+ testRunner.Then(string.Format("Verify whether the status code \"{0}\"", statusCode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -120,15 +141,23 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Patch operation for UpdateUser")]
-        [NUnit.Framework.TestCaseAttribute("/api/users/711", "200", null)]
-        public virtual void PatchOperationForUpdateUser(string resource, string statusCode, string[] exampleTags)
+        [NUnit.Framework.CategoryAttribute("Test")]
+        [NUnit.Framework.TestCaseAttribute("200", "Joly", "Teacher", null)]
+        public virtual void PatchOperationForUpdateUser(string statusCode, string name, string job, string[] exampleTags)
         {
-            string[] tagsOfScenario = exampleTags;
+            string[] @__tags = new string[] {
+                    "Test"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("Resource", resource);
             argumentsOfScenario.Add("StatusCode", statusCode);
+            argumentsOfScenario.Add("Name", name);
+            argumentsOfScenario.Add("Job", job);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Patch operation for UpdateUser", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 12
+#line 18
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -148,20 +177,29 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                             "Key",
                             "Value"});
-                table1.AddRow(new string[] {
+                table3.AddRow(new string[] {
                             "Name",
-                            "Don"});
-                table1.AddRow(new string[] {
+                            "Joly"});
+                table3.AddRow(new string[] {
                             "Job",
-                            "nurse"});
-#line 13
- testRunner.Given(string.Format("User send Patch request with \"{0}\" and payload", resource), ((string)(null)), table1, "Given ");
+                            "Teacher"});
+                table3.AddRow(new string[] {
+                            "Id",
+                            "123"});
+#line 19
+ testRunner.Given("User Create \"PATCH\" request with payload", ((string)(null)), table3, "Given ");
 #line hidden
-#line 17
- testRunner.Then(string.Format("Verify whether the status code is \"{0}\"", statusCode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 24
+ testRunner.When("User Execute the request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 25
+ testRunner.And(string.Format("Verify Whether the \"{0}\" And \"{1}\" Is Updated", name, job), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 26
+ testRunner.Then(string.Format("Verify whether the status code \"{0}\"", statusCode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

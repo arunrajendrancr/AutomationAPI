@@ -75,14 +75,22 @@ namespace AutomationAPI.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Get operation for SingleUser")]
-        [NUnit.Framework.TestCaseAttribute("api/users/2", "200", "Janet Weaver", null)]
-        [NUnit.Framework.TestCaseAttribute("api/users/2", "200", "Janet Weav", null)]
-        public virtual void GetOperationForSingleUser(string resource, string statusCode, string name, string[] exampleTags)
+        [NUnit.Framework.CategoryAttribute("Test")]
+        [NUnit.Framework.TestCaseAttribute("Single", "200", "Id", "2", "Janet Weaver", null)]
+        public virtual void GetOperationForSingleUser(string user, string statusCode, string parameter, string value, string name, string[] exampleTags)
         {
-            string[] tagsOfScenario = exampleTags;
+            string[] @__tags = new string[] {
+                    "Test"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("Resource", resource);
+            argumentsOfScenario.Add("User", user);
             argumentsOfScenario.Add("StatusCode", statusCode);
+            argumentsOfScenario.Add("Parameter", parameter);
+            argumentsOfScenario.Add("Value", value);
             argumentsOfScenario.Add("Name", name);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get operation for SingleUser", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 3
@@ -106,13 +114,16 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 4
- testRunner.Given(string.Format("User send GET request with \"{0}\"", resource), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given(string.Format("User Create \"GET\" request for \"{0}\" with \"{1}\"  and its \"{2}\"", user, parameter, value), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 5
- testRunner.Then(string.Format("Verify whether the status code \"{0}\"", statusCode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("User Execute the request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 6
- testRunner.Then(string.Format("Verify whether the Name is \"{0}\"", name), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And(string.Format("Verify whether the Name is \"{0}\"", name), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 7
+ testRunner.Then(string.Format("Verify whether the status code \"{0}\"", statusCode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -120,16 +131,25 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Get operation for Ivalid SingleUser -Negative")]
-        [NUnit.Framework.TestCaseAttribute("api/users/27", "404", null)]
-        public virtual void GetOperationForIvalidSingleUser_Negative(string resource, string statusCode, string[] exampleTags)
+        [NUnit.Framework.CategoryAttribute("Test")]
+        [NUnit.Framework.TestCaseAttribute("Single", "404", "Id", "27", null)]
+        public virtual void GetOperationForIvalidSingleUser_Negative(string user, string statusCode, string parameter, string value, string[] exampleTags)
         {
-            string[] tagsOfScenario = exampleTags;
+            string[] @__tags = new string[] {
+                    "Test"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("Resource", resource);
+            argumentsOfScenario.Add("User", user);
             argumentsOfScenario.Add("StatusCode", statusCode);
+            argumentsOfScenario.Add("Parameter", parameter);
+            argumentsOfScenario.Add("Value", value);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get operation for Ivalid SingleUser -Negative", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 14
- this.ScenarioInitialize(scenarioInfo);
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
             bool isFeatureIgnored = default(bool);
@@ -149,9 +169,12 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 15
- testRunner.Given(string.Format("User send GET request with \"{0}\"", resource), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given(string.Format("User Create \"GET\" request for \"{0}\" with \"{1}\"  and its \"{2}\"", user, parameter, value), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 16
+ testRunner.When("User Execute the request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 17
  testRunner.Then(string.Format("Verify whether the status code \"{0}\"", statusCode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
