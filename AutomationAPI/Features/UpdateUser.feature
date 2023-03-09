@@ -7,8 +7,8 @@ Scenario: Put operation for UpdateUser
 		| Job  | Doctor |
 		| Id   | 123    |
 	When User Execute the request
-	And Verify Whether the "<Name>" And "<Job>" Is Updated
-	Then Verify whether the status code "<StatusCode>"
+	Then Verify Whether the "<Name>" And "<Job>" Is Updated
+	And Verify whether the status code "<StatusCode>"
 	
 Examples:
 	| StatusCode | Name | Job    |
@@ -22,8 +22,8 @@ Scenario: Patch operation for UpdateUser
 		| Job  | Teacher |
 		| Id   | 123     |
 	When User Execute the request
-	And Verify Whether the "<Name>" And "<Job>" Is Updated
-	Then Verify whether the status code "<StatusCode>"
+	Then Verify Whether the "<Name>" And "<Job>" Is Updated
+	And Verify whether the status code "<StatusCode>"
 Examples:
 	| StatusCode | Name | Job     |
 	| 200        | Joly | Teacher |

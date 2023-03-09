@@ -44,7 +44,7 @@ namespace AutomationAPI.StepDefinitions
         public void ThenVerifyWhetherTheStatusCode(string statuscode)
         {
             var result = GetStatusCode();
-            Assert.AreEqual(Int32.Parse(statuscode), result, "Verfied The status code");
+            Assert.AreEqual(Int32.Parse(statuscode), result, "Failed to Verify The status code");
         }
     }
 

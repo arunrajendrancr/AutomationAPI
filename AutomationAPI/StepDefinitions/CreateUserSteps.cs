@@ -17,7 +17,7 @@ namespace AutomationAPI.StepDefinitions
     public class CreateUserSteps :Helper
     {
 
-        [When(@"Verify Whether the ""([^""]*)"" And ""([^""]*)"" Is Same")]
+        [Then(@"Verify Whether the ""([^""]*)"" And ""([^""]*)"" Is Same")]
         public void ThenVerifyWhetherTheAndIsSame(string userName, string userJob)
         {
             var userDetails = JsonConvert.DeserializeObject<CreateUserModel>(_restResponse.Content);

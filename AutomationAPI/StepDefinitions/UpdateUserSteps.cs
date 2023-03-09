@@ -20,7 +20,7 @@ namespace AutomationAPI.StepDefinitions
     public  class UpdateUserSteps : Helper
     {
       
-        [When(@"Verify Whether the ""([^""]*)"" And ""([^""]*)"" Is Updated")]
+        [Then(@"Verify Whether the ""([^""]*)"" And ""([^""]*)"" Is Updated")]
         public void ThenVerifyWhetherTheAndIsUpdated(string userName, string userJob)
         {
             var userDetails = JsonConvert.DeserializeObject<UpdateUserModel>(_restResponse.Content);

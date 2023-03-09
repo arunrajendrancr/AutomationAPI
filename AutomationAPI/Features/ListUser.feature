@@ -13,8 +13,8 @@ Examples:
 Scenario: Verify whether a perticular user exist in User's list
 	Given User Create "GET" request for "<User>" with "<Parameter>"  and its "<Value>"
 	When User Execute the request
-	And Verify whether the "<UserName>" exist in User's list
-	Then Verify whether the status code "<StatusCode>"
+	Then Verify whether the "<UserName>" exist in User's list
+	And Verify whether the status code "<StatusCode>"
 
 Examples:
 	| User | StatusCode | Parameter  | Value | UserName         |

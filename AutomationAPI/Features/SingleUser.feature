@@ -3,8 +3,8 @@
 Scenario: Get operation for SingleUser
 	Given User Create "GET" request for "<User>" with "<Parameter>"  and its "<Value>"
 	When User Execute the request
-	And Verify whether the Name is "<Name>"
-	Then Verify whether the status code "<StatusCode>"
+	Then Verify whether the Name is "<Name>"
+	And Verify whether the status code "<StatusCode>"
 	
 Examples:
 	| User   | StatusCode | Parameter | Value | Name         |

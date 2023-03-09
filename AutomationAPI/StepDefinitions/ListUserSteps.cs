@@ -19,7 +19,7 @@ namespace AutomationAPI.StepDefinitions
     public class ListUserSteps : Helper
     {
 
-        [When(@"Verify whether the ""([^""]*)"" exist in User's list")]
+        [Then(@"Verify whether the ""([^""]*)"" exist in User's list")]
         public void ThenVerifyWhetherTheExistInUsersList(string userName)
         {
             var result = CheckUserNameExist(userName);

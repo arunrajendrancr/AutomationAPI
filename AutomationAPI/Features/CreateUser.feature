@@ -7,8 +7,8 @@ Scenario: Post operation for CreateUser1
 		| Name | Jacob  |
 		| Job  | Driver |
 	When User Execute the request
-	And Verify Whether the "<Name>" And "<Job>" Is Same
-	Then Verify whether the status code "<StatusCode>"
+	Then Verify Whether the "<Name>" And "<Job>" Is Same
+	And Verify whether the status code "<StatusCode>"
 
 Examples:
 	| Name  | Job    | StatusCode |

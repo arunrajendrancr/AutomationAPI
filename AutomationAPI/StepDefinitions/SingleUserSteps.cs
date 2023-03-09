@@ -13,7 +13,7 @@ namespace AutomationAPI.StepDefinitions
     [Binding]
     public class SingleUserSteps :Helper
     {
-        [When(@"Verify whether the Name is ""([^""]*)""")]
+        [Then(@"Verify whether the Name is ""([^""]*)""")]
         public void WhenVerifyWhetherTheNameIs(string name)
         {
             var apiName = GetSingleUserDetails();

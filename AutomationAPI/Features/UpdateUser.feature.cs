@@ -130,10 +130,10 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("User Execute the request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 10
- testRunner.And(string.Format("Verify Whether the \"{0}\" And \"{1}\" Is Updated", name, job), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then(string.Format("Verify Whether the \"{0}\" And \"{1}\" Is Updated", name, job), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 11
- testRunner.Then(string.Format("Verify whether the status code \"{0}\"", statusCode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And(string.Format("Verify whether the status code \"{0}\"", statusCode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -196,10 +196,10 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("User Execute the request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 25
- testRunner.And(string.Format("Verify Whether the \"{0}\" And \"{1}\" Is Updated", name, job), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then(string.Format("Verify Whether the \"{0}\" And \"{1}\" Is Updated", name, job), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 26
- testRunner.Then(string.Format("Verify whether the status code \"{0}\"", statusCode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And(string.Format("Verify whether the status code \"{0}\"", statusCode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
